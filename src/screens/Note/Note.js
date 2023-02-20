@@ -55,15 +55,7 @@ const DATA = [
     separation : '|',
     moyenne : '15,00/20',
     note : '19,00/20',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    subject: 'Third Item',   
-    date: '19 novembre',
-    separation : '|',
-    moyenne : '15,00/20',
-    note : '19,00/20',
-  },
+  }, 
 ];
 
 const Item = ({item}) => (
@@ -83,7 +75,7 @@ const Item = ({item}) => (
 
 const Note = () => {
   return ( 
-    <View style={styles.scrollview}>
+    <ScrollView style={styles.scrollview}>
 
     <View style={styles.box}>
         <View style={styles.oval} />
@@ -96,10 +88,8 @@ const Note = () => {
             <Text style={styles.years} > Première année </Text>
             <Text style={styles.trimestre} > Premier trimestre </Text>
         </View>
-    
 
         <FlatList
-            
             showsHorizontalScrollIndicator={false}
             legacyImplementation={false}
             data={DATA}
@@ -107,7 +97,7 @@ const Note = () => {
             keyExtractor={(item) => item.id}
         />
     
-    </View>
+    </ScrollView>
   );
 };
 
@@ -119,9 +109,9 @@ const styles = StyleSheet.create({
       },
       oval: {
         width: 450,
-        height: 150,
-        borderBottomLeftRadius: 100,
-        borderBottomRightRadius: 100,
+        height: 140,
+        borderBottomLeftRadius: 60,
+        borderBottomRightRadius: 60,
         backgroundColor: "#7299FE",
       },
       hr1:{
@@ -185,7 +175,7 @@ const styles = StyleSheet.create({
       },
       hrGrand:{
         width: 370, 
-        borderWidth: 1,
+        borderWidth: 0.8,
         marginTop: 15,
         borderColor: '#BBBBBB' ,
       },
