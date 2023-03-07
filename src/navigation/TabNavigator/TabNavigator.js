@@ -6,7 +6,9 @@ const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{headerShown: false, tabBarShowLabel: false}}
+      initialRouteName={'Home'}>
       <Tab.Screen name="Login" component={Login} />
     </Tab.Navigator>
   );
