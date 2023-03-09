@@ -125,7 +125,6 @@ const styles = StyleSheet.create({
         justifyContent:"center",
     },
     cardNote: {
-        paddingLeft:20 ,
         paddingRight:20 ,
         marginHorizontal: 16,       
         flexDirection: "row", 

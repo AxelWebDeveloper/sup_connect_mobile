@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingTop: 20,
-
+  },
     box: {
         flexDirection: "row",
         justifyContent: "center",
@@ -215,7 +215,6 @@ const styles = StyleSheet.create({
     },
     cardNote: {
         paddingBottom: 10 ,
-        paddingLeft:20 ,
         paddingRight:20 ,
         paddingTop: 20,
 
@@ -247,6 +246,7 @@ const styles = StyleSheet.create({
       note:{
         marginLeft: 60,
       },
+
 });
 
 export default Note;
