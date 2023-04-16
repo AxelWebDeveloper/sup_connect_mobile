@@ -1,15 +1,49 @@
 import React, {useState} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {Image} from 'react-native';
+import axios from 'axios';
 import {Button} from 'react-native-paper';
 import Container from '../../components/Container/Container';
 import CustomInput from '../../components/CustomInput/CustomInput';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
+  const navigation = useNavigation();
+  const [errorMessage, setErrorMessage] = useState(null);
   const [value, onChangeValue] = useState({
     email: '',
     password: '',
   });
+
+  const handleLogin = () => {
+    const {email, password} = value;
+    axios
+      .post('http://127.0.0.1:3000/api/v1/auth/login', {email, password})
+      .then(response => {
+        console.log('Utilisateur connecté avec succès:', response.data);
+        const accessToken = response.data.accessToken;
+        const userId = response.data.sub;
+        AsyncStorage.setItem('accessToken', accessToken);
+        AsyncStorage.setItem('userId', userId);
+
+        navigation.navigate('Home');
+      })
+      .catch(error => {
+        console.log("Erreur lors de la connexion de l'utilisateur:", error);
+
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error === 'Un nouveau mot de passe est requis'
+        ) {
+          // Rediriger l'utilisateur vers le formulaire de réinitialisation de mot de passe
+          // (vous pouvez utiliser React Navigation pour cela)
+        } else {
+          setErrorMessage("Erreur lors de la connexion de l'utilisateur");
+        }
+      });
+  };
 
   return (
     <Container style={styles.container}>
@@ -28,7 +62,7 @@ const Login = () => {
           <CustomInput
             style={styles.input}
             value={value.email}
-            onChangeText={onChangeValue}
+            onChangeText={text => onChangeValue({...value, email: text})}
           />
         </View>
         <View style={styles.inputWrapper}>
@@ -36,12 +70,16 @@ const Login = () => {
           <CustomInput
             style={styles.input}
             value={value.password}
-            onChangeText={onChangeValue}
+            onChangeText={text => onChangeValue({...value, password: text})}
             secure={true}
           />
         </View>
 
-        <Button style={styles.buttonLogin}>
+        <View>
+          {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
+        </View>
+
+        <Button style={styles.buttonLogin} onPress={handleLogin}>
           <Text style={styles.textButton}>Connexion</Text>
         </Button>
 
