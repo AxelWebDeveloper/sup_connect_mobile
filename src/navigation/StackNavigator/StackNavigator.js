@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 function StackNavigator() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Note" component={Setting} />
+      <Stack.Screen name="Note" component={Planning} />
     </Stack.Navigator>
   );
 }
