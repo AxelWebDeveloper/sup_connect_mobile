@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = () => {
     const {email, password} = value;
     axios
-      .post('http://10.160.32.28:3000/api/v1/auth/login', {email, password})
+      .post('http://10.160.32.35:3000/api/v1/auth/login', {email, password})
       .then(response => {
         console.log('Utilisateur connecté avec succès:', response.data);
         if (response.data && response.data.passwordChangeRequired) {
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     backgroundColor: '#F3F3F3',
-    borderRadius: 10,
+    borderRadius: 7,
     marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 15,

@@ -185,12 +185,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'white',
     marginTop: 15,
-    height:75,
-    borderRadius:10,
+    height: 75,
+    borderRadius: 10,
   },
   divImage: {
     marginLeft: 20,
-    marginTop:13,
+    marginTop: 13,
   },
   iconMessage: {
     width: 45,
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   divText: {
     marginLeft: 20,
-    marginTop:16,
+    marginTop: 16,
   },
   nameText: {
     fontWeight: '500',
@@ -206,56 +206,56 @@ const styles = StyleSheet.create({
   },
   messageText: {
     color: 'rgba(161, 161, 161, 1)',
-    fontStyle:'normal',
-    fontWeight:'400',
-    fontSize:12,
-    marginTop:4,
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 12,
+    marginTop: 4,
   },
   divTime: {
-    marginLeft:-10,
+    marginLeft: -10,
   },
-  timeText:{
-    fontStyle:12,
-    fontWeight:'400',
-    color:'#A1A1A1',
+  timeText: {
+    fontStyle: 12,
+    fontWeight: '400',
+    color: '#A1A1A1',
   },
-  groupeTitle:{
-    marginTop:20,
+  groupeTitle: {
+    marginTop: 20,
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 19,
     marginLeft: 25,
   },
-  divImaheGroupe:{
+  divImaheGroupe: {
     marginLeft: 20,
-    marginTop:13,
+    marginTop: 13,
   },
-  iconGroupe:{
+  iconGroupe: {
     width: 45,
     height: 45,
   },
-  divTextGroupe:{
+  divTextGroupe: {
     marginLeft: 20,
-    marginTop:16,
+    marginTop: 16,
   },
-  nameTextGroupe:{
+  nameTextGroupe: {
     fontWeight: '500',
     fontSize: 15,
   },
-  messageTextGroupe:{
+  messageTextGroupe: {
     color: 'rgba(161, 161, 161, 1)',
-    fontStyle:'normal',
-    fontWeight:'400',
-    fontSize:12,
-    marginTop:4,
+    fontStyle: 'normal',
+    fontWeight: '400',
+    fontSize: 12,
+    marginTop: 4,
   },
-  divTimeGroupe:{
-    marginLeft:-10,
+  divTimeGroupe: {
+    marginLeft: -10,
   },
-  timeTextGroupe:{
-    fontStyle:12,
-    fontWeight:'400',
-    color:'#A1A1A1',
+  timeTextGroupe: {
+    fontStyle: 12,
+    fontWeight: '400',
+    color: '#A1A1A1',
   },
 });
 
