@@ -11,8 +11,18 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Note" component={Message} />
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={'Login'}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Message" component={Message} />
+      <Stack.Screen
+        name="CompleteNewPassword"
+        component={CompleteNewPassword}
+      />
+      <Stack.Screen name="Settings" component={Setting} />
+      <Stack.Screen name="Note" component={Planning} />
     </Stack.Navigator>
   );
 }
