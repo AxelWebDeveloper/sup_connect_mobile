@@ -19,29 +19,19 @@ const Login = () => {
   const handleLogin = () => {
     const {email, password} = value;
     axios
-      .post('http://127.0.0.1:3000/api/v1/auth/login', {email, password})
+      .post('http://10.160.32.28:3000/api/v1/auth/login', {email, password})
       .then(response => {
         console.log('Utilisateur connecté avec succès:', response.data);
-        const accessToken = response.data.accessToken;
-        const userId = response.data.sub;
-        AsyncStorage.setItem('accessToken', accessToken);
-        AsyncStorage.setItem('userId', userId);
-
-        navigation.navigate('Home');
+        if (response.data && response.data.passwordChangeRequired) {
+          navigation.navigate('CompleteNewPassword');
+        } else {
+          const accessToken = response.data.accessToken;
+          AsyncStorage.setItem('accessToken', accessToken);
+          navigation.navigate('Home');
+        }
       })
       .catch(error => {
-        console.log("Erreur lors de la connexion de l'utilisateur:", error);
-
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.error === 'Un nouveau mot de passe est requis'
-        ) {
-          // Rediriger l'utilisateur vers le formulaire de réinitialisation de mot de passe
-          // (vous pouvez utiliser React Navigation pour cela)
-        } else {
-          setErrorMessage("Erreur lors de la connexion de l'utilisateur");
-        }
+        setErrorMessage("Erreur lors de la connexion de l'utilisateur");
       });
   };
 
