@@ -3,14 +3,14 @@ import {View, StyleSheet, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from 'react-native-paper';
 import {Image} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
-
-/* const dateProfil = [
+/*
+const dateProfil = [
   {
     idPorfil: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    IoniconProfil: <Ionicons name="calendar-sharp" size={30} color="#EAAA6F" />,
+    IoniconProfil: <Ionicons name="calendar-outline size={30}" color="#EAAA6F" />,
     textProfil: 'Informations',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
@@ -32,9 +32,9 @@ import {FlatList} from 'react-native-gesture-handler';
     textProfil: 'Déconnexion',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
-]; */
+];
 
-/*const Item = ({item}) => (
+const Item = ({item}) => (
   <View style={styles.cardProfil1}>
     <View style={styles.textProfil}>
       <View style={styles.CardLogo}>{item.IoniconProfil}</View>
@@ -42,36 +42,38 @@ import {FlatList} from 'react-native-gesture-handler';
       <View style={styles.arrowProfil}>{item.IoniconProfil2}</View>
     </View>
   </View>
-);*/
+);
 
 const Account = () => {
   return (
     <>
-      {/*<View style={styles.container}>
-        <SafeAreaView>
-          <Button style={styles.buttonModifier}>
-            <Text style={styles.textModifier}>Modifier le profil</Text>
-          </Button>
-          <View style={styles.viewProfil}>
-            <Image
-              style={styles.imageProfil}
-              source={require('../../assets/profil2.png')}
-            />
-            <Text style={styles.nameProfil}> LING LONG </Text>
-            <Text style={styles.classProfil}> L3 Paris </Text>
-          </View>
+      {
+        <View style={styles.container}>
+          <SafeAreaView>
+            <Button style={styles.buttonModifier}>
+              <Text style={styles.textModifier}>Modifier le profil</Text>
+            </Button>
+            <View style={styles.viewProfil}>
+              <Image
+                style={styles.imageProfil}
+                source={require('../../assets/profil2.png')}
+              />
+              <Text style={styles.nameProfil}> LING LONG </Text>
+              <Text style={styles.classProfil}> L3 Paris </Text>
+            </View>
 
-          <ScrollView style={styles.infosProfil}>
-            <FlatList
-              showsHorizontalScrollIndicator={false}
-              legacyImplementation={false}
-              data={dateProfil}
-              renderItem={({item}) => <Item item={item} />}
-              keyExtractor={item => item.id}
-            />
-          </ScrollView>
-        </SafeAreaView>
-      </View>*/}
+            <ScrollView style={styles.infosProfil}>
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                legacyImplementation={false}
+                data={dateProfil}
+                renderItem={({item}) => <Item item={item} />}
+                keyExtractor={item => item.id}
+              />
+            </ScrollView>
+          </SafeAreaView>
+        </View>
+      }
     </>
   );
 };
@@ -183,3 +185,4 @@ const styles = StyleSheet.create({
 });
 
 export default Account;
+*/
