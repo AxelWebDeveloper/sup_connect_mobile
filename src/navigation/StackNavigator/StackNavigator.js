@@ -1,9 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../../screens/Login/Login';
-import Setting from '../../screens/Setting/Setting';
-import CompleteNewPassword from '../../screens/CompleteNewPassword/CompleteNewPassword';
+import Note from '../../screens/Note/Note';
+import Planning from'../../screens/Planning/Planning';
 import Home from '../../screens/Home/Home';
+import Profil from '../../screens/Profil/Profil'
+import Setting from '../../screens/Setting/Setting';
 const Stack = createStackNavigator();
 
 function StackNavigator() {
@@ -18,6 +20,7 @@ function StackNavigator() {
         component={CompleteNewPassword}
       />
       <Stack.Screen name="Settings" component={Setting} />
+        <Stack.Screen name="Note" component={Planning} />
     </Stack.Navigator>
   );
 }
