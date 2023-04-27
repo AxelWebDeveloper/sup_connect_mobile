@@ -22,7 +22,8 @@ import ChatInput from './DiscussionInput';
 const DATAdiscussion = [
   {
     id: 'bd7acbea-c1b1-46iuhbic2-aed5-3ad53abb28ba',
-    content: 'salut ta les craeaeazeazeazeazeazeaeazeazeazeazeazeazeazeazeazeal,fe,azf,az,faz,fo,az,opfxakzknlcaznlfdlnkaznzanlfnlakzflnaznklfazlknfnkaznfkl,dampté ?',
+    content:
+      'salut ta les craeaeazeazeazeazeazeaeazeazeazeazeazeazeazeazeazeal,fe,azf,az,faz,fo,az,opfxakzknlcaznlfdlnkaznzanlfnlakzflnaznklfazlknfnkaznfkl,dampté ?',
     timeDiscussion3: '10H29',
     author: '1',
   },
@@ -175,8 +176,8 @@ const styles = StyleSheet.create({
   cardDiscussions: {
     width: 255,
     minHeight: 55,
-    paddingTop:10,
-    paddingBottom:10,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: 'white',
     display: 'flex',
     paddingLeft: 15,
