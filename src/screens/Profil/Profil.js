@@ -3,32 +3,38 @@ import {View, StyleSheet, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from 'react-native-paper';
 import {Image} from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
-/*
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
 const dateProfil = [
   {
-    idPorfil: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    IoniconProfil: <Ionicons name="calendar-outline size={30}" color="#EAAA6F" />,
+    idPorfil: 'bd7acbea-c1b1-46c2-aed5-3ad53dadaabb28ba',
+    IoniconProfil: (
+      <Ionicons name="information-circle-outline" size={30} color="#EAAA6F" />
+    ),
     textProfil: 'Informations',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
   {
-    idProfil: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    IoniconProfil: <Ionicons name="calendar-sharp" size={30} color="#EAAA6F" />,
+    idProfil: '3ac68afc-c605-48ddazdz3-a4f8-fbd91aa97f63',
+    IoniconProfil: <AntDesign name="notification" size={29} color="#EAAA6F" />,
     textProfil: 'Absences',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
   {
-    idProfil: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    IoniconProfil: <Ionicons name="calendar-sharp" size={30} color="#EAAA6F" />,
+    idProfil: 'bd7acbdazdzaea-c1b1-46c2-aed5-3ad53abb28ba',
+    IoniconProfil: <Ionicons name="time-outline" size={30} color="#EAAA6F" />,
     textProfil: 'Retards',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
   {
-    idProfil: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    IoniconProfil: <Ionicons name="calendar-sharp" size={30} color="#EAAA6F" />,
+    idProfil: 'bd7acbea-c1b1-4dazd6c2-aed5-3ad53abb28ba',
+    IoniconProfil: <Ionicons name="md-exit-outline" size={30} color="#EAAA6F" />,
     textProfil: 'Déconnexion',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
@@ -185,4 +191,3 @@ const styles = StyleSheet.create({
 });
 
 export default Account;
-*/
