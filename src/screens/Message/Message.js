@@ -10,6 +10,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import IconMessage from '../../assets/IconMessage.png';
 import {Item} from 'react-native-paper/lib/typescript/components/List/List';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DATAmessage = [
@@ -76,11 +77,13 @@ const ItemMessage = ({itemMessage}) => (
       <Text style={styles.nameText}> {itemMessage.name}</Text>
       <Text style={styles.messageText}> {itemMessage.message}</Text>
     </View>
-    <View style={styles.divTime}>
-      <Text style={styles.timeText}> {itemMessage.time} </Text>
-    </View>
   </View>
 );
+/*
+<View style={styles.divTime}>
+      <Text style={styles.timeText}> {itemMessage.time} </Text>
+    </View>
+ */
 
 const ItemGroupe = ({itemGroupe}) => (
   <View style={styles.cardMessage}>
@@ -91,12 +94,12 @@ const ItemGroupe = ({itemGroupe}) => (
       <Text style={styles.nameTextGroupe}> {itemGroupe.titre}</Text>
       <Text style={styles.messageTextGroupe}> {itemGroupe.messageGroupe}</Text>
     </View>
-    <View style={styles.divTimeGroupe}>
-      <Text style={styles.timeTextGroupe}> {itemGroupe.time} </Text>
-    </View>
   </View>
 );
-
+/*<View style={styles.divTimeGroupe}>
+        <Text style={styles.timeTextGroupe}> {itemGroupe.time} </Text>
+      </View>
+ */
 const Message = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -124,10 +127,14 @@ const Message = () => {
           onChangeText={handleTextChange}
           value={searchQuery}
           placeholder="Rechercher un message..."
-          leftIcon={<Icon name="user" size={24} color="gray" />}
+          leftIcon={<Ionicons name="search-outline" size={24} color="gray" />}
         />
         <View style={styles.iconDiv}>
-          <Ionicons name="rocket" /*style={{height: 30, with: 30}}*/ />
+          <MaterialCommunityIcons
+            name="chat-plus-outline"
+            size={23}
+            color="#A1A1A1"
+          />
         </View>
       </View>
       <View style={styles.botMessage}>
