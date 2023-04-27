@@ -10,7 +10,7 @@ function StackNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={'Discussion'}>
+      initialRouteName={'Home'}>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Discussion" component={Discussion} />
       <Stack.Screen name="Home" component={Home} />
