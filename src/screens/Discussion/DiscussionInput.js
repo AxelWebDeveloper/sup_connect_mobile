@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {TextInput, Button, StyleSheet, View} from 'react-native';
+/*
+function message
 
 const ChatInput = ({onSendMessage}) => {
   const [message, setMessage] = useState('');
@@ -8,21 +10,12 @@ const ChatInput = ({onSendMessage}) => {
     onSendMessage(message);
     setMessage('');
   };
-
+*/
+const ChatInput = () => {
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Entrez votre message ici"
-        value={message}
-        onChangeText={setMessage}
-      />
-      <Button
-        style={styles.button}
-        title="Envoyer"
-        onPress={handleSendMessage}
-        disabled={!message}
-      />
+      <TextInput style={styles.input} placeholder="Entrez votre message ici" />
+      <Button style={styles.button} title="Envoyer" />
     </View>
   );
 };
@@ -35,7 +28,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
-    marginBottom:20,
+    marginBottom: 20,
   },
   input: {
     padding: 8,
