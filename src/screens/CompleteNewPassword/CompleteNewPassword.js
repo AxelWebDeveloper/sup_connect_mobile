@@ -20,7 +20,7 @@ const CompleteNewPassword = () => {
       );
 
       console.log('Mot de passe mis à jour avec succès:', response.data);
-      navigation.navigate('Home');
+      navigation.navigate('Tab');
     } catch (error) {
       console.log('Erreur lors de la réinitialisation du mot de passe:', error);
       // Gérez l'erreur et affichez un message à l'utilisateur si nécessaire
