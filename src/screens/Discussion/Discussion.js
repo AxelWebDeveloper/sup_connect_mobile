@@ -9,7 +9,7 @@ import {SearchBar} from 'react-native-screens';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import IconMessage from '../../assets/IconMessage.png';
 import {Item} from 'react-native-paper/lib/typescript/components/List/List';
-import Ionicons from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconDiscussions from '../../assets/IconMessage.png';
 import Container from '../../components/Container/Container';
@@ -92,7 +92,12 @@ const Discussion = () => {
   return (
     <SafeAreaView style={styles.containerDiscussion}>
       <View style={styles.divDiscussionTop}>
-        <Text style={styles.iconBack}> C </Text>
+        <Ionicons
+          style={styles.iconBack}
+          name="arrow-back"
+          size={30}
+          color="#33363F"
+        />
         <Image source={IconMessage} style={styles.iconDiscussion} />
         <View style={styles.divTopRight}>
           <Text style={styles.userOnline}> Robin des bois </Text>
@@ -135,14 +140,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
-    height: 95,
+    height: 50,
     shadowColor: 'black',
     shadowRadius: 1,
   },
   iconBack: {
-    marginLeft: 28,
-    width: 24,
-    height: 24,
+    marginLeft: 22,
+    marginRight: 25,
+    width: 25,
+    height: 25,
   },
   iconDiscussion: {
     width: 50,
@@ -164,7 +170,7 @@ const styles = StyleSheet.create({
   },
   divDiscussionsMid: {
     backgroundColor: '#F5F5F5',
-    height: 590,
+    height: 620,
   },
   containerDiscussions: {
     width: 260,

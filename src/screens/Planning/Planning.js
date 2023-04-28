@@ -16,28 +16,28 @@ const DATA = [
     salle: '230',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c6eaze05-48d3-a4f8-fbd91aa97f63',
     time: '11:00 - 11:45',
     subject: 'Second Item',
     profName: 'abdel',
     salle: '400',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c605-48ddazdza3-a4f8-fbd91aa97f63',
     time: '11:00 - 11:45',
     subject: 'Second Item',
     profName: 'abdel',
     salle: '400',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c605-48d3-a4fdazdazdazd8-fbd91aa97f63',
     time: '11:00 - 11:45',
     subject: 'Second Item',
     profName: 'abdel',
     salle: '400',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa9dazdazpmm7f63',
     time: '11:00 - 11:45',
     subject: 'Second Item',
     profName: 'abdel',
@@ -75,6 +75,7 @@ const Note = () => {
       <FlatList
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
+        scrollEnabled={false}
         data={DATA}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}

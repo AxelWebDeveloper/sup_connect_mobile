@@ -4,6 +4,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from 'react-native-paper';
 import {Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {FlatList} from 'react-native-gesture-handler';
 import {SearchBar} from 'react-native-screens';
 import CustomInput from '../../components/CustomInput/CustomInput';
@@ -22,19 +23,34 @@ const Setting = () => {
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> Informations de l'école </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton1}>dd</Text>
+            <Ionicons
+              style={styles.iconButton1}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> Notifications </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton2}>dd</Text>
+            <Ionicons
+              style={styles.iconButton2}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> Confidentialité </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton3}>dd</Text>
+            <Ionicons
+              style={styles.iconButton3}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
       </View>
@@ -43,19 +59,34 @@ const Setting = () => {
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> Sécurité </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton4}>dd</Text>
+            <Ionicons
+              style={styles.iconButton4}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> À propos </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton5}>ddd</Text>
+            <Ionicons
+              style={styles.iconButton5}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
         <View style={styles.settingButton}>
           <Text style={styles.titleButton}> Aide </Text>
           <View style={styles.iconView}>
-            <Text style={styles.iconButton6}>ddd</Text>
+            <Ionicons
+              style={styles.iconButton6}
+              name="arrow-forward-circle-outline"
+              size={30}
+              color="#33363F"
+            />
           </View>
         </View>
       </View>
@@ -120,21 +151,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(236, 236, 236, 1)',
     flexDirection: 'row',
     alignItems: 'center',
+    display: 'flex',
   },
   titleButton: {
     marginLeft: 30,
   },
   iconButton1: {
-    marginLeft: 105,
+    marginLeft: 100,
   },
   iconButton2: {
-    marginLeft: 170,
+    marginLeft: 164,
   },
   iconButton3: {
-    marginLeft: 158,
+    marginLeft: 152,
   },
   iconButton4: {
-    marginLeft: 197,
+    marginLeft: 195,
   },
   iconButton5: {
     marginLeft: 190,

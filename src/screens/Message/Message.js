@@ -15,28 +15,28 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DATAmessage = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbeazea-c1b1-46c2-aed5-3ad53abb28ba',
     image: IconMessage,
     name: 'Walid VacheKiri',
     message: 'Je suis un développeur vraiment gros...',
     time: '15:30 - Aujourd’hui',
   },
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-4eaz6c2-aed5-3ad53abb28ba',
     image: IconMessage,
     name: 'Axel deforest',
     message: 'Salut, t’es chaud on va au duplex...',
     time: 'Il y a 3 jours',
   },
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53eazabb28ba',
     image: IconMessage,
     name: 'Oceane Leboeuf',
     message: 'Dit au Po jsuis malade ...',
     time: 'Il y a 3 jours',
   },
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-46cfaf2-aed5-3ad53abb28ba',
     image: IconMessage,
     name: 'Alexis hack',
     message: 'vendredi go au bar ...',
@@ -46,23 +46,30 @@ const DATAmessage = [
 
 const DATAgroupe = [
   {
-    idGroupe: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7vdfvacbea-c1b1-46c2-aed5-3ad53abb28ba',
     imageGroupe: IconMessage,
     titre: 'L3 Paris - Coding Factory',
     messageGroupe: 'Robin est la demain ? ...',
     timeGroupe: '15:30 - Aujourd’hui',
   },
   {
-    idGroupe: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-46c2-aevdfvd5-3ad53abb28ba',
     imageGroupe: IconMessage,
     titre: 'Groupe 4 php',
     messageGroupe: 'Robin est la demain ? ...',
     timeGroupe: '15:30 - Aujourd’hui',
   },
   {
-    idGroupe: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53vfdvdfabb28ba',
     imageGroupe: IconMessage,
     titre: 'Cours de danse Robin',
+    messageGroupe: 'Robin est la demain ? ...',
+    timeGroupe: '15:30 - Aujourd’hui',
+  },
+  {
+    id: 'bd7acbeaaa-c1b1-46c2-aedaz5-3ad53vfdvdfabb28ba',
+    imageGroupe: IconMessage,
+    titre: 'Cours de chant Robin',
     messageGroupe: 'Robin est la demain ? ...',
     timeGroupe: '15:30 - Aujourd’hui',
   },
@@ -114,47 +121,51 @@ const Message = () => {
 
   return (
     <SafeAreaView style={styles.scrollview}>
-      <View style={styles.topMessage}>
-        <TextInput
-          style={{
-            height: 50,
-            width: 250,
-            borderRadius: 10,
-            marginLeft: 25,
-            backgroundColor: 'white',
-            paddingLeft: 15,
-          }}
-          onChangeText={handleTextChange}
-          value={searchQuery}
-          placeholder="Rechercher un message..."
-          leftIcon={<Ionicons name="search-outline" size={24} color="gray" />}
-        />
-        <View style={styles.iconDiv}>
-          <MaterialCommunityIcons
-            name="chat-plus-outline"
-            size={23}
-            color="#A1A1A1"
+      <ScrollView>
+        <View style={styles.topMessage}>
+          <TextInput
+            style={{
+              height: 50,
+              width: 250,
+              borderRadius: 10,
+              marginLeft: 25,
+              backgroundColor: 'white',
+              paddingLeft: 15,
+            }}
+            onChangeText={handleTextChange}
+            value={searchQuery}
+            placeholder="Rechercher un message..."
+            leftIcon={<Ionicons name="search-outline" size={24} color="gray" />}
+          />
+          <View style={styles.iconDiv}>
+            <MaterialCommunityIcons
+              name="chat-plus-outline"
+              size={23}
+              color="#A1A1A1"
+            />
+          </View>
+        </View>
+        <View style={styles.botMessage}>
+          <Text style={styles.messageTitle}>Messages</Text>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            legacyImplementation={false}
+            scrollEnabled={false}
+            data={DATAmessage}
+            renderItem={({item}) => <ItemMessage itemMessage={item} />}
+            keyExtractor={itemMessage => itemMessage.id}
+          />
+          <Text style={styles.groupeTitle}>Groupes</Text>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            legacyImplementation={false}
+            scrollEnabled={false}
+            data={DATAgroupe}
+            renderItem={({item}) => <ItemGroupe itemGroupe={item} />}
+            keyExtractor={itemGroupe => itemGroupe.id}
           />
         </View>
-      </View>
-      <View style={styles.botMessage}>
-        <Text style={styles.messageTitle}>Messages</Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          legacyImplementation={false}
-          data={DATAmessage}
-          renderItem={({item}) => <ItemMessage itemMessage={item} />}
-          keyExtractor={itemMessage => itemMessage.id}
-        />
-        <Text style={styles.groupeTitle}>Groupes</Text>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          legacyImplementation={false}
-          data={DATAgroupe}
-          renderItem={({item}) => <ItemGroupe itemGroupe={item} />}
-          keyExtractor={itemGroupe => itemGroupe.id}
-        />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

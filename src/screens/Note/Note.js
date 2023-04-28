@@ -9,7 +9,7 @@ import {FlatList} from 'react-native-gesture-handler';
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7aeazeacbea-c1b1-46c2-aed5-3ad53abb28ba',
     subject: 'Mathématiques',
     date: '19 novembre',
     separation: '|',
@@ -17,7 +17,7 @@ const DATA = [
     note: '19,00/20',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c6azeeaze05-48d3-a4f8-fbd91aa97f63',
     subject: 'Second Item',
     date: '19 novembre',
     separation: '|',
@@ -25,7 +25,7 @@ const DATA = [
     note: '19,00/20',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-3da1-471f-bdazeaz96-145571e29d72',
     subject: 'Third Item',
     date: '19 novembre',
     separation: '|',
@@ -33,7 +33,7 @@ const DATA = [
     note: '19,00/20',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-3da1-471f-bd96-145571eazezae29d72',
     subject: 'Third Item',
     date: '19 novembre',
     separation: '|',
@@ -41,7 +41,7 @@ const DATA = [
     note: '19,00/20',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694dqda0f-3da1-471f-bdzdazdd96-145571e29d72',
     subject: 'Third Item',
     date: '19 novembre',
     separation: '|',
@@ -49,7 +49,7 @@ const DATA = [
     note: '19,00/20',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694dazdaza0f-3da1-471f-bd96-14557dqsdqsdsq1e29d72',
     subject: 'Third Item',
     date: '19 novembre',
     separation: '|',
@@ -86,10 +86,10 @@ const Note = () => {
         <Text style={styles.years}> Première année </Text>
         <Text style={styles.trimestre}> Premier trimestre </Text>
       </View>
-
       <FlatList
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
+        scrollEnabled={false}
         data={DATA}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}

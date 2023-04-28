@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
   },
   input: {
-    marginTop: 10,
     padding: 8,
     borderRadius: 8,
     marginRight: 8,
