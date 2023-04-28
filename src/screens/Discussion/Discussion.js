@@ -1,22 +1,12 @@
 import {React, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {Button} from 'react-native-paper';
 import {Image} from 'react-native';
-import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
-import {SearchBar} from 'react-native-screens';
-import CustomInput from '../../components/CustomInput/CustomInput';
+
 import IconMessage from '../../assets/IconMessage.png';
-import {Item} from 'react-native-paper/lib/typescript/components/List/List';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import IconDiscussions from '../../assets/IconMessage.png';
-import Container from '../../components/Container/Container';
-import {
-  black,
-  white,
-} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
+
 import ChatInput from './DiscussionInput';
 
 const DATAdiscussion = [
@@ -56,6 +46,12 @@ const DATAdiscussion = [
     content: 'Quoicoubeh greg',
     timeDiscussion3: '10H30',
     author: '2',
+  },
+  {
+    id: 'bddazd7acbdazdea-c1b1-46iiicv2-aed5-3dazad53aadzbb28ba',
+    content: 'Quoicoudazdazdbeh greg',
+    timeDiscussion3: '10H30',
+    author: '1',
   },
 ];
 
@@ -170,7 +166,7 @@ const styles = StyleSheet.create({
   },
   divDiscussionsMid: {
     backgroundColor: '#F5F5F5',
-    height: 620,
+    height: 580,
   },
   containerDiscussions: {
     width: 260,

@@ -32,15 +32,16 @@ const dateProfil = [
     textProfil: 'Retards',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
   },
-  {
+];
+
+/*{
     id: 'bd7acbea-qsd-4dazd6c2-aed5-3addzad53abb2fezfeeazeazez8ba',
     IoniconProfil: (
       <Ionicons name="md-exit-outline" size={30} color="#EAAA6F" />
     ),
     textProfil: 'Déconnexion',
     IoniconProfil2: <Ionicons name="chevron-forward" size={30} color="grey" />,
-  },
-];
+  },*/
 
 const Item = ({item}) => (
   <View style={styles.cardProfil1}>

@@ -1,3 +1,4 @@
+// Importing necessary dependencies
 import {React} from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
@@ -7,7 +8,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-
+// Data for the list of cours
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3addazd53abb28ba',
@@ -32,6 +33,7 @@ const DATA = [
   },
 ];
 
+// Data for the list of notes
 const dataNotes = [
   {
     id: '58694adazdaz0f-3da1-471f-bd96-145571e29d72s',
@@ -59,6 +61,7 @@ const dataNotes = [
   },
 ];
 
+// Component for rendering each course item in the list
 const Item = ({item}) => (
   <View style={styles.coursItem}>
     <View style={[styles.backgroundItem, {backgroundColor: item.color}]} />
@@ -95,7 +98,11 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(169, 193, 255, 0.43)'},
               ]}>
-              <MaterialCommunityIcons size={23} name="note-multiple-outline" style={{color: '#7299FE'}} />
+              <MaterialCommunityIcons
+                size={23}
+                name="note-multiple-outline"
+                style={{color: '#7299FE'}}
+              />
             </View>
             <Text style={styles.menuTitle}>Notes</Text>
           </View>
@@ -115,7 +122,11 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(255, 169, 169, 0.43)'},
               ]}>
-              <MaterialIcons size={25} name="menu-book" style={{color: '#E37878'}} />
+              <MaterialIcons
+                size={25}
+                name="menu-book"
+                style={{color: '#E37878'}}
+              />
             </View>
             <Text style={styles.menuTitle}>Cours</Text>
           </View>

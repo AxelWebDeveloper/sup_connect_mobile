@@ -135,7 +135,6 @@ const Message = () => {
             onChangeText={handleTextChange}
             value={searchQuery}
             placeholder="Rechercher un message..."
-            leftIcon={<Ionicons name="search-outline" size={24} color="gray" />}
           />
           <View style={styles.iconDiv}>
             <MaterialCommunityIcons

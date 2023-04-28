@@ -27,7 +27,7 @@ const Login = () => {
         } else {
           const accessToken = response.data.accessToken;
           AsyncStorage.setItem('accessToken', accessToken);
-          navigation.navigate('Home');
+          navigation.navigate('Tab');
         }
       })
       .catch(error => {
@@ -75,7 +75,6 @@ const Login = () => {
 
         <Text style={styles.textMdp}>Mot de passe oublié ?</Text>
       </View>
-      <Text style={styles.compteLogin}>Vous n’avez pas de compte ?</Text>
     </Container>
   );
 };
