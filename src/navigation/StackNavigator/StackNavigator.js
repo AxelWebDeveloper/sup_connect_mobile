@@ -9,17 +9,17 @@ import Note from '../../screens/Note/Note';
 import CompleteNewPassword from '../../screens/CompleteNewPassword/CompleteNewPassword';
 import Setting from '../../screens/Setting/Setting';
 import Discussion from '../../screens/Discussion/Discussion';
+import TabNavigator from '../TabNavigator/TabNavigator';
 const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
     <Stack.Navigator
       screenOptions={{headerShown: false}}
-      initialRouteName={'Home'}>
+      initialRouteName={'Login'}>
+      <Stack.Screen name="Tab" component={TabNavigator} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Discussion" component={Discussion} />
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profil" component={Profil} />
       <Stack.Screen name="Message" component={Message} />
       <Stack.Screen name="Note" component={Note} />
       <Stack.Screen name="Planning" component={Planning} />
