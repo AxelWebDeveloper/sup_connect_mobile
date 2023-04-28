@@ -2,7 +2,12 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../../screens/Login/Login';
 import Home from '../../screens/Home/Home';
+import Profil from '../../screens/Profil/Profil';
+import Message from '../../screens/Message/Message';
+import Planning from '../../screens/Planning/Planning';
+import Note from '../../screens/Note/Note';
 import CompleteNewPassword from '../../screens/CompleteNewPassword/CompleteNewPassword';
+import Setting from '../../screens/Setting/Setting';
 import Discussion from '../../screens/Discussion/Discussion';
 const Stack = createStackNavigator();
 
@@ -14,6 +19,11 @@ function StackNavigator() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Discussion" component={Discussion} />
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Profil" component={Profil} />
+      <Stack.Screen name="Message" component={Message} />
+      <Stack.Screen name="Note" component={Note} />
+      <Stack.Screen name="Planning" component={Planning} />
+      <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen
         name="CompleteNewPassword"
         component={CompleteNewPassword}

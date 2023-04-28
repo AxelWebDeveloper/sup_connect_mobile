@@ -2,24 +2,29 @@ import {React} from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {ScrollView} from 'react-native-gesture-handler';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    id: 'bd7acbea-c1b1-46c2-aed5-3addazd53abb28ba',
     title: 'PHP',
     salle: 'Salle 303',
     hour: '11h',
     color: '#A9C1FF',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    id: '3ac68afc-c605-4dazdzd8d3-a4f8-fbd91aa97f63',
     title: 'Anglais',
     salle: 'Salle 101',
     hour: '18h30',
     color: '#CAA9FF',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    id: '58694a0f-dazd3da1-471f-bd96-145571e29d72',
     title: 'Javascript',
     salle: 'Salle 12',
     hour: '13h30',
@@ -29,25 +34,25 @@ const DATA = [
 
 const dataNotes = [
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72s',
+    id: '58694adazdaz0f-3da1-471f-bd96-145571e29d72s',
     name: 'Java',
     note: '17/20',
     description: '2 notes: Individuelle et groupe',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72a',
+    id: '58694a0f-3da1-471f-bd96dsvsd-145571e29d72a',
     name: 'Python',
     note: '12/20',
     description: '2 notes: Individuelle et groupe',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72z',
+    id: '58694a0f-3da1-471f-bd96-145571e29dvdfvdf72z',
     name: 'PHP',
     note: '18,5/20',
     description: '2 notes: Individuelle et groupe',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72d',
+    id: '58694a0f-3da1-471f-bd96-145571e29d7bdfbdb2d',
     name: 'Android',
     note: '10/20',
     description: '2 notes: Individuelle et groupe',
@@ -90,7 +95,7 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(169, 193, 255, 0.43)'},
               ]}>
-              <Text size={30}> C </Text>
+              <MaterialCommunityIcons size={23} name="note-multiple-outline" style={{color: '#7299FE'}} />
             </View>
             <Text style={styles.menuTitle}>Notes</Text>
           </View>
@@ -100,7 +105,7 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(234, 170, 111, 0.43)'},
               ]}>
-              <Text size={30}>C</Text>
+              <AntDesign size={25} name="calendar" style={{color: '#EBB079'}} />
             </View>
             <Text style={styles.menuTitle}>Calendrier</Text>
           </View>
@@ -110,7 +115,7 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(255, 169, 169, 0.43)'},
               ]}>
-              <Text size={30}>C</Text>
+              <MaterialIcons size={25} name="menu-book" style={{color: '#E37878'}} />
             </View>
             <Text style={styles.menuTitle}>Cours</Text>
           </View>
@@ -120,7 +125,7 @@ const Home = () => {
                 styles.circleIcon,
                 {backgroundColor: 'rgba(243, 169, 255, 0.43)'},
               ]}>
-              <Text size={30}>C</Text>
+              <FontAwesome5 size={23} name="user" style={{color: '#C973D7'}} />
             </View>
             <Text style={styles.menuTitle}>Profil</Text>
           </View>

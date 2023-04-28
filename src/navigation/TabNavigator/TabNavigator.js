@@ -9,9 +9,10 @@ function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{headerShown: false, tabBarShowLabel: false}}
-      initialRouteName={'Home'}>
+      initialRouteName={'Profil'}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Login" component={Login} />
+
     </Tab.Navigator>
   );
 }
