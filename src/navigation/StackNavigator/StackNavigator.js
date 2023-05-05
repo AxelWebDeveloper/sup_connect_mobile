@@ -12,7 +12,6 @@ function StackNavigator() {
       initialRouteName={'Login'}>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Message" component={Message} />
       <Stack.Screen
         name="CompleteNewPassword"
         component={CompleteNewPassword}
