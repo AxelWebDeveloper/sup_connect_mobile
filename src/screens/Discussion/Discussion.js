@@ -6,7 +6,7 @@ import {FlatList} from 'react-native-gesture-handler';
 
 import IconMessage from '../../assets/IconMessage.png';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Return from './ButtonReturn';
 import ChatInput from './DiscussionInput';
 
 const DATAdiscussion = [
@@ -88,12 +88,7 @@ const Discussion = () => {
   return (
     <SafeAreaView style={styles.containerDiscussion}>
       <View style={styles.divDiscussionTop}>
-        <Ionicons
-          style={styles.iconBack}
-          name="arrow-back"
-          size={30}
-          color="#33363F"
-        />
+        <Return />
         <Image source={IconMessage} style={styles.iconDiscussion} />
         <View style={styles.divTopRight}>
           <Text style={styles.userOnline}> Robin des bois </Text>
