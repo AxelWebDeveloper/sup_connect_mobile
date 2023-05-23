@@ -60,7 +60,6 @@ const Note = () => {
       <View style={styles.titleDiv}>
         <Text style={styles.titlePage}> Bulletin </Text>
       </View>
-
       <FlatList
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
