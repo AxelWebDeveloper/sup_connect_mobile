@@ -6,73 +6,52 @@ import {Image} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
-
-const DATA = [
-  {
-    id: 'bd7aeazeacbea-c1b1-46c2-aed5-3ad53abb28ba',
-    subject: 'Mathématiques',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-  {
-    id: '3ac68afc-c6azeeaze05-48d3-a4f8-fbd91aa97f63',
-    subject: 'Second Item',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-  {
-    id: '58694a0f-3da1-471f-bdazeaz96-145571e29d72',
-    subject: 'Third Item',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571eazezae29d72',
-    subject: 'Third Item',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-  {
-    id: '58694dqda0f-3da1-471f-bdzdazdd96-145571e29d72',
-    subject: 'Third Item',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-  {
-    id: '58694dazdaza0f-3da1-471f-bd96-14557dqsdqsdsq1e29d72',
-    subject: 'Third Item',
-    date: '19 novembre',
-    separation: '|',
-    moyenne: '15,00/20',
-    note: '19,00/20',
-  },
-];
-
-const Item = ({item}) => (
-  <View style={styles.cardNote}>
-    <View style={styles.hrPetit} />
-    <Text style={styles.subject}>{item.subject}</Text>
-    <View style={styles.bottomNote}>
-      <Text style={styles.date}> {item.date} </Text>
-      <Text style={styles.separation}> {item.separation} </Text>
-      <Text style={styles.moyenne}>Moy. class : {item.moyenne} </Text>
-      <Text style={styles.note}> {item.note} </Text>
-    </View>
-    <View style={styles.hrGrand} />
-  </View>
-);
+import axios from 'axios';
+import moment from 'moment';
+import 'moment/locale/fr';
+import {useEffect, useState} from 'react';
+import {red50} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const Note = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://10.160.32.141:3000/api/grades/',
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const renderItem = ({item}) => (
+    <View style={styles.cardNote}>
+      <View style={styles.hrPetit} />
+      <Text style={styles.subject}> {item.subject.name} </Text>
+      <View style={styles.bottomNote}>
+        <Text style={styles.date}>
+          {' '}
+          {moment(item.createdAt).format('DD MMM YYYY')}{' '}
+        </Text>
+        <Text> | </Text>
+        <Text style={styles.moyenne}> Moy. class : </Text>
+        <View style={styles.viewAmount}>
+          <Text style={styles.amountNote}>
+            {' '}
+            {item.amount} / {item.total}{' '}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.hrGrand} />
+    </View>
+  );
+
   return (
     <ScrollView style={styles.scrollview}>
       <View style={styles.box}>
@@ -82,16 +61,12 @@ const Note = () => {
         <Text style={styles.titlePage}> Bulletin </Text>
       </View>
 
-      <View style={styles.carousel}>
-        <Text style={styles.years}> Première année </Text>
-        <Text style={styles.trimestre}> Premier trimestre </Text>
-      </View>
       <FlatList
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
         scrollEnabled={false}
-        data={DATA}
-        renderItem={({item}) => <Item item={item} />}
+        data={data}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </ScrollView>
@@ -124,20 +99,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignContent: 'center',
   },
-  carousel: {
-    alignItems: 'center',
-  },
-  years: {
-    marginTop: 30,
-    fontSize: 19,
-    fontWeight: '600',
-  },
-  trimestre: {
-    marginTop: 30,
-    marginBottom: 45,
-    fontSize: 19,
-    fontWeight: '600',
-  },
   titleDiv: {
     width: 160,
     height: 50,
@@ -156,14 +117,13 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingRight: 20,
     paddingTop: 20,
-
     marginVertical: 1,
     marginHorizontal: 16,
   },
   hrPetit: {
-    width: 70,
+    width: 65,
     marginLeft: 3,
-    borderWidth: 4,
+    borderWidth: 3,
     borderRadius: 10,
     marginBottom: 10,
     borderColor: '#DF7C7C',
@@ -172,18 +132,23 @@ const styles = StyleSheet.create({
     width: 370,
     borderWidth: 0.8,
     marginTop: 15,
+    marginBottom: -15,
     borderColor: '#BBBBBB',
   },
   subject: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: '600',
   },
   bottomNote: {
     flexDirection: 'row',
     marginTop: 10,
   },
-  note: {
-    marginLeft: 60,
+  viewAmount: {
+    width: 180,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
 });
 
