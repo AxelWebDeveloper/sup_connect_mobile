@@ -1,4 +1,4 @@
-import {React} from 'react';
+import {React, useEffect, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Button} from 'react-native-paper';
@@ -6,44 +6,7 @@ import {Image} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
-
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    time: '10:00 - 10:45',
-    subject: 'Mathématiques',
-    profName: 'Robin',
-    salle: '230',
-  },
-  {
-    id: '3ac68afc-c6eaze05-48d3-a4f8-fbd91aa97f63',
-    time: '11:00 - 11:45',
-    subject: 'Second Item',
-    profName: 'abdel',
-    salle: '400',
-  },
-  {
-    id: '3ac68afc-c605-48ddazdza3-a4f8-fbd91aa97f63',
-    time: '11:00 - 11:45',
-    subject: 'Second Item',
-    profName: 'abdel',
-    salle: '400',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4fdazdazdazd8-fbd91aa97f63',
-    time: '11:00 - 11:45',
-    subject: 'Second Item',
-    profName: 'abdel',
-    salle: '400',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa9dazdazpmm7f63',
-    time: '11:00 - 11:45',
-    subject: 'Second Item',
-    profName: 'abdel',
-    salle: '400',
-  },
-];
+import axios from 'axios';
 
 const Item = ({item}) => (
   <View style={styles.cardNote}>
@@ -52,17 +15,40 @@ const Item = ({item}) => (
       <View style={styles.trait} />
     </View>
     <View style={styles.coteDroit}>
-      <Text style={styles.time}> {item.time} </Text>
+      <Text style={styles.time}>
+        {' '}
+        {item.startTime} - {item.endTime}{' '}
+      </Text>
       <View style={styles.cardPlanning}>
-        <Text style={styles.subject}>{item.subject}</Text>
-        <Text style={styles.profName}>Professeur - {item.profName} </Text>
-        <Text style={styles.salle}> Salle {item.salle} </Text>
+        <Text style={styles.subject}>PHP</Text>
+        <Text style={styles.profName}>Professeur - Alexis </Text>
+        <Text style={styles.salle}> Salle 202 </Text>
       </View>
     </View>
   </View>
 );
 
-const Note = () => {
+const Planning = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://10.160.32.141:3000/api/courses/day/${today}`,
+        );
+        setData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ScrollView style={styles.scrollview}>
       <View style={styles.box}>
@@ -76,7 +62,7 @@ const Note = () => {
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
         scrollEnabled={false}
-        data={DATA}
+        data={data}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
@@ -178,4 +164,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Note;
+export default Planning;
