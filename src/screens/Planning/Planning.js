@@ -31,16 +31,24 @@ const Item = ({item}) => (
 const Planning = () => {
   const [data, setData] = useState([]);
 
+  const compareByStartTime = (a, b) => {
+    const startTimeA = new Date(`2000-01-01 ${a.startTime}`);
+    const startTimeB = new Date(`2000-01-01 ${b.startTime}`);
+    return startTimeA - startTimeB;
+  };
+
   useEffect(() => {
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
+    const formattedDate = today.toISOString();
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://10.160.32.141:3000/api/courses/day/${today}`,
+          `http://10.160.32.141:3000/api/courses/day/${formattedDate}`,
         );
         setData(response.data);
-        console.log(response.data);
+        console.log(formattedDate);
       } catch (error) {
         console.error(error);
       }
@@ -62,7 +70,7 @@ const Planning = () => {
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
         scrollEnabled={false}
-        data={data}
+        data={data.sort(compareByStartTime)}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
