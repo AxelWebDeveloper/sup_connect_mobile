@@ -7,7 +7,7 @@ const TouchableProfil = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('Profil');
+    navigation.navigate('Profil2');
   };
 
   return (
