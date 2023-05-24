@@ -10,6 +10,8 @@ import CompleteNewPassword from '../../screens/CompleteNewPassword/CompleteNewPa
 import Setting from '../../screens/Setting/Setting';
 import Discussion from '../../screens/Discussion/Discussion';
 import TabNavigator from '../TabNavigator/TabNavigator';
+import Absence from '../../screens/Profil/Absence';
+import Retard from '../../screens/Profil/Retard';
 const Stack = createStackNavigator();
 
 function StackNavigator() {
@@ -24,6 +26,8 @@ function StackNavigator() {
       <Stack.Screen name="Note" component={Note} />
       <Stack.Screen name="Planning" component={Planning} />
       <Stack.Screen name="Setting" component={Setting} />
+      <Stack.Screen name="Absence" component={Absence} />
+      <Stack.Screen name="Retard" component={Retard} />
       <Stack.Screen
         name="CompleteNewPassword"
         component={CompleteNewPassword}

@@ -10,7 +10,6 @@ import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/fr';
 import {useEffect, useState} from 'react';
-import {red50} from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 
 const Note = () => {
   const [data, setData] = useState([]);
