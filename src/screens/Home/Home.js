@@ -1,5 +1,5 @@
 // Importing necessary dependencies
-import {React} from 'react';
+import {React, useEffect, useState} from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import TouchableNotes from './TouchableNotes';
 import TouchableCalendar from './TouchableCalendar';
 import TouchableMessage from './TouchableMessage';
 import TouchableProfil from './TouchableProfil';
+import axios from 'axios';
 
 // Data for the list of cours
 const DATA = [
@@ -33,34 +34,6 @@ const DATA = [
   },
 ];
 
-// Data for the list of notes
-const dataNotes = [
-  {
-    id: '58694adazdaz0f-3da1-471f-bd96-145571e29d72s',
-    name: 'Java',
-    note: '17/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96dsvsd-145571e29d72a',
-    name: 'Python',
-    note: '12/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29dvdfvdf72z',
-    name: 'PHP',
-    note: '18,5/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d7bdfbdb2d',
-    name: 'Android',
-    note: '10/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-];
-
 // Component for rendering each course item in the list
 const Item = ({item}) => (
   <View style={styles.coursItem}>
@@ -78,6 +51,22 @@ const Item = ({item}) => (
 );
 
 const Home = () => {
+  const [notes, setNotes] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://192.168.0.22:3000/api/users/1/grades',
+        );
+        setNotes(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ScrollView>
       <View style={styles.box}>
@@ -116,15 +105,15 @@ const Home = () => {
               <View>
                 <Text
                   style={{fontSize: 18, fontWeight: '600', marginBottom: 5}}>
-                  {item.name}
+                  Matière
                 </Text>
                 <Text style={{fontSize: 15, color: '#9D9D9D'}}>
-                  {item.description}
+                  2 notes: Individuelle et groupe
                 </Text>
               </View>
               <View>
                 <Text style={{fontSize: 18, fontWeight: '600'}}>
-                  {item.note}
+                  {item.amount}/{item.total}
                 </Text>
               </View>
             </View>

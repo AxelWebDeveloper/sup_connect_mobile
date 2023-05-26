@@ -7,76 +7,11 @@ import {Ionicons} from '@expo/vector-icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
 import axios from 'axios';
+import {BASE_URL} from '@env';
 import moment from 'moment';
 import 'moment/locale/fr';
 import {useEffect, useState} from 'react';
 
-const DATA = [
-  {
-    id: 'bd7aeazeacbea-c1b1-46c2-aed5-3ad53abb28ba',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '3ac68afc-c6azeeaze05-48d3-a4f8-fbd91aa97f63',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694a0f-3da1-471f-bdazeaz96-145571e29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571eazezae29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471f-bdzdazdd96-145571e29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3ddazdaza1-471f-bdzdazdd96-145571e29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471dazdzf-bdzdazdd96-145571e29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471dazdzf-bdzdazdd96-145dazdza571e29d72',
-    subject: 'Retard',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-];
 const Item = ({item}) => (
   <View style={styles.cardNote}>
     <View style={styles.hrPetit} />
@@ -93,6 +28,22 @@ const Item = ({item}) => (
   </View>
 );
 const Absence = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://192.168.0.22:3000/api/delays/users/1/delays',
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ScrollView style={styles.scrollview}>
       <View style={styles.box}>
@@ -106,7 +57,7 @@ const Absence = () => {
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
         scrollEnabled={false}
-        data={DATA}
+        data={data}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
