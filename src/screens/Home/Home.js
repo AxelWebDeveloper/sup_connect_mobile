@@ -8,6 +8,7 @@ import TouchableCalendar from './TouchableCalendar';
 import TouchableMessage from './TouchableMessage';
 import TouchableProfil from './TouchableProfil';
 import axios from 'axios';
+import moment from 'moment/moment';
 
 // Data for the list of cours
 const DATA = [
@@ -46,6 +47,20 @@ const Item = ({item}) => (
         <Text style={{fontSize: 12, color: '#9A9A9A'}}>{item.salle}</Text>
         <Text style={{fontSize: 12, color: '#9A9A9A'}}>{item.hour}</Text>
       </View>
+    </View>
+  </View>
+);
+
+const RenderItem = ({item}) => (
+  <View style={styles.noteItem}>
+    <View>
+      <Text style={{fontSize: 18, fontWeight: '600', marginBottom: 5}}>
+        {item.name}
+      </Text>
+      <Text style={{fontSize: 15, color: '#9D9D9D'}}>{item.description}</Text>
+    </View>
+    <View>
+      <Text style={{fontSize: 18, fontWeight: '600'}}>{item.note}</Text>
     </View>
   </View>
 );
@@ -99,25 +114,14 @@ const Home = () => {
             keyExtractor={item => item.id}
           />
           <Text style={styles.subContainerTitle}>Dernières notes</Text>
-
-          {dataNotes.map(item => (
-            <View style={styles.noteItem} key={item.id}>
-              <View>
-                <Text
-                  style={{fontSize: 18, fontWeight: '600', marginBottom: 5}}>
-                  Matière
-                </Text>
-                <Text style={{fontSize: 15, color: '#9D9D9D'}}>
-                  2 notes: Individuelle et groupe
-                </Text>
-              </View>
-              <View>
-                <Text style={{fontSize: 18, fontWeight: '600'}}>
-                  {item.amount}/{item.total}
-                </Text>
-              </View>
-            </View>
-          ))}
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            legacyImplementation={false}
+            scrollEnabled={false}
+            data={dataNotes}
+            renderItem={({item}) => <RenderItem item={item} />}
+            keyExtractor={item => item.id}
+          />
         </View>
       </View>
     </ScrollView>
