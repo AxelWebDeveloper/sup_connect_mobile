@@ -11,7 +11,7 @@ const CompleteNewPassword = () => {
   const handleSubmit = async (email, password, newPassword) => {
     try {
       const response = await axios.post(
-        'http://10.160.32.35:3000/api/v1/auth/complete-new-password',
+        'http://192.168.0.22:3000/api/v1/auth/complete-new-password',
         {
           email: email,
           password: password,

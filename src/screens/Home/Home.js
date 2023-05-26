@@ -1,5 +1,5 @@
 // Importing necessary dependencies
-import {React} from 'react';
+import {React, useEffect, useState} from 'react';
 import {View, StyleSheet, Text, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import TouchableNotes from './TouchableNotes';
 import TouchableCalendar from './TouchableCalendar';
 import TouchableMessage from './TouchableMessage';
 import TouchableProfil from './TouchableProfil';
+import axios from 'axios';
 import moment from 'moment/moment';
 
 // Data for the list of cours
@@ -31,34 +32,6 @@ const DATA = [
     salle: 'Salle 12',
     hour: '13h30',
     color: '#FFF6C7',
-  },
-];
-
-// Data for the list of notes
-const dataNotes = [
-  {
-    id: '58694adazdaz0f-3da1-471f-bd96-145571e29d72s',
-    name: 'Java',
-    note: '17/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96dsvsd-145571e29d72a',
-    name: 'Python',
-    note: '12/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29dvdfvdf72z',
-    name: 'PHP',
-    note: '18,5/20',
-    description: '2 notes: Individuelle et groupe',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d7bdfbdb2d',
-    name: 'Android',
-    note: '10/20',
-    description: '2 notes: Individuelle et groupe',
   },
 ];
 
@@ -93,6 +66,22 @@ const RenderItem = ({item}) => (
 );
 
 const Home = () => {
+  const [notes, setNotes] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'http://192.168.0.22:3000/api/users/1/grades',
+        );
+        setNotes(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ScrollView>
       <View style={styles.box}>

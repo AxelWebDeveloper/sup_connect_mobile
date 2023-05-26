@@ -1,11 +1,8 @@
 import {React, useEffect, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Button} from 'react-native-paper';
-import {Image} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
+import {BASE_URL} from '@env';
 import axios from 'axios';
 
 const Item = ({item}) => (
@@ -45,7 +42,7 @@ const Planning = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://10.160.32.141:3000/api/courses/day/${formattedDate}`,
+          `http://192.168.0.22:3000/api/courses/day/${formattedDate}`,
         );
         setData(response.data);
         console.log(formattedDate);

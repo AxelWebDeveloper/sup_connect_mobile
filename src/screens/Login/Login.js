@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = () => {
     const {email, password} = value;
     axios
-      .post('http://10.160.32.35:3000/api/v1/auth/login', {email, password})
+      .post('http://192.168.0.22:3000/api/v1/auth/login', {email, password})
       .then(response => {
         console.log('Utilisateur connecté avec succès:', response.data);
         if (response.data && response.data.passwordChangeRequired) {

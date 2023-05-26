@@ -1,98 +1,48 @@
 import {React} from 'react';
+import {useEffect, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Button} from 'react-native-paper';
-import {Image} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {FlatList} from 'react-native-gesture-handler';
 import axios from 'axios';
+import {BASE_URL} from '@env';
 import moment from 'moment';
 import 'moment/locale/fr';
-import {useEffect, useState} from 'react';
 
-const DATA = [
-  {
-    id: 'bd7aeazeacbea-c1b1-46c2-aed5-3ad53abb28ba',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '3ac68afc-c6azeeaze05-48d3-a4f8-fbd91aa97f63',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694a0f-3da1-471f-bdazeaz96-145571e29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571eazezae29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471f-bdzdazdd96-145571e29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3ddazdaza1-471f-bdzdazdd96-145571e29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471dazdzf-bdzdazdd96-145571e29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-  {
-    id: '58694dqda0f-3da1-471dazdzf-bdzdazdd96-145dazdza571e29d72',
-    subject: 'Absence',
-    date: '19 novembre',
-    separation: '|',
-    heure: '15H30',
-    heureRetard: '2H30 de cours manqué',
-  },
-];
 const Item = ({item}) => (
   <View style={styles.cardNote}>
-    <View style={styles.hrPetit} />
-    <Text style={styles.subject}> {item.subject} </Text>
+    <View>
+      <View style={styles.hrPetit} />
+      <Text style={styles.subject}>Test de matière</Text>
+      <Text style={styles.reason}>Motif : {item.reason}</Text>
+    </View>
     <View style={styles.bottomNote}>
-      <Text style={styles.date}>{item.date}</Text>
-      <Text> | </Text>
+      <Text style={styles.date}>{moment(item.date).format('DD MMM YYYY')}</Text>
+      {/*<Text> | </Text>
       <Text style={styles.moyenne}> {item.heure} </Text>
       <View style={styles.viewAmount}>
         <Text style={styles.amountNote}>{item.heureRetard}</Text>
-      </View>
+      </View>*/}
     </View>
     <View style={styles.hrGrand} />
   </View>
 );
 const Absence = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://192.168.0.22:3000/api/absences/users/1/absences`,
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <ScrollView style={styles.scrollview}>
       <View style={styles.box}>
@@ -106,7 +56,7 @@ const Absence = () => {
         showsHorizontalScrollIndicator={false}
         legacyImplementation={false}
         scrollEnabled={false}
-        data={DATA}
+        data={data}
         renderItem={({item}) => <Item item={item} />}
         keyExtractor={item => item.id}
       />
@@ -176,9 +126,16 @@ const styles = StyleSheet.create({
     marginBottom: -15,
     borderColor: '#BBBBBB',
   },
+  reason: {
+    fontSize: 14,
+  },
   subject: {
     fontSize: 17,
     fontWeight: '600',
+    marginBottom: 3,
+  },
+  date: {
+    fontSize: 13,
   },
   bottomNote: {
     flexDirection: 'row',
